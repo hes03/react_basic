@@ -17,24 +17,23 @@
       {id:2, value: '빨래하기'},
       {id:3, value: '조깅하기'}, 
     ]
-    //사용자 함수 정의 -> 컴포넌트 사용 -> 주의할 점은 함수명은 반드시 대문자로 시작
-    //주의할 점 - 트래블슈팅
-    //() => (): return을 쓰지 않아도 됨(생략가능)
-    //() => {return}: return을 생략할 수 없음
+    //사용자 정의 태그이다 - 컴포넌트(함수)
     const App = () => {
+      const doneClick = (todo) => {
+        console.log('doneClick');
+        console.log(todo);
+      }//end of doneClick
       return (
-        <React.Fragment>
+        <>
           <h2>Todo List</h2>
           {todos.map((todo, index) => (
             <div key={todo.id}>
-              <button>{todo.id}{todo.value}</button>  
+              <button onClick={()=>doneClick(todo)}>{todo.id}{todo.value}</button>  
             </div>
-          ))
-
-          }
-        </React.Fragment>
-      )
-    }
+          ))}
+        </>
+      )//end of return
+    }//end of App
     ReactDOM.createRoot(root).render(<App />)
   </script>
 </body>
