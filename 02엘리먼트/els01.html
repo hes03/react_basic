@@ -9,20 +9,22 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <h1>One</h1>
+    <h1>Two</h1>
+    <h1>Three</h1>
+  </div>
   <script type="text/babel">
-    //함수선언도 가능하고 호출도 가능함
-    const formatName = (user) => {
-      return user.firstName + " " + user.lastName
-    }
-    //객체 리터럴 사용가능함
-    const user = {
-      firstName: 'scott',
-      lastName: 'tiger'
-    }
-    const element = <h2>Hello, {formatName(user)}</h2> //JSX {} 붙이면 어디든 JS섞어쓰기
-    const root = ReactDOM.createRoot(document.querySelector("#root"))
-    root.render(element);
+    const root = document.querySelector("#root")
+    const element = (
+      <React.Fragment children={[
+        React.createElement("h1",{key:1, children:"하나"}),
+        React.createElement("h1",{key:2, children:"둘"}),
+        React.createElement("h1",{key:3, children:"셋"}),
+      ]}>
+      </React.Fragment>
+    )
+    ReactDOM.createRoot(root).render(element)
   </script>
 </body>
 </html>

@@ -11,18 +11,18 @@
 <body>
   <div id="root"></div>
   <script type="text/babel">
-    //함수선언도 가능하고 호출도 가능함
-    const formatName = (user) => {
-      return user.firstName + " " + user.lastName
-    }
-    //객체 리터럴 사용가능함
-    const user = {
-      firstName: 'scott',
-      lastName: 'tiger'
-    }
-    const element = <h2>Hello, {formatName(user)}</h2> //JSX {} 붙이면 어디든 JS섞어쓰기
     const root = ReactDOM.createRoot(document.querySelector("#root"))
-    root.render(element);
+    function tick(){
+      const element = (
+        <div>
+          <h1>Hello, world!</h1>
+          <h2>It is {new Date().toLocaleTimeString()}</h2>
+        </div>
+      );
+      root.render(element);
+    }
+
+    setInterval(tick, 1000);
   </script>
 </body>
 </html>
